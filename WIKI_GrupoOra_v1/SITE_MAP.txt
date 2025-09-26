@@ -1,0 +1,52 @@
+WIKI_GrupoOra_v1
+  - 00_HOME.md
+  - 11_Banco_de_Links.md
+  - 12_Glossario.md
+  - 13_FAQ.md
+  - README.md
+01_Governanca
+  - 01_Governanca_da_Wiki.md
+  - 02_Modelo_de_Pagina.md
+02_Operacional
+  - Contabil.md
+  - Fiscal.md
+  - Pessoal_DP.md
+03_Clientes
+  - _TEMPLATE_Cliente.md
+  - EXEMPLO_Modaitech.md
+04_Projetos
+  - _TEMPLATE_Projeto.md
+05_Procedimentos_POP
+  - _TEMPLATE_POP.md
+  - POP_Entrega_Futura_Mod55_EXEMPLO.md
+06_Software_Base
+  - Athenas3000.md
+  - AthenasOnline.md
+  - SSparisi.md
+07_Scripts_Atendimento
+  - _TEMPLATE_Script.md
+  - Script_Onboarding_Cliente_Lucro_Real.md
+08_Templates_Documentos
+  - ATA_Reuniao_TEMPLATE.md
+  - Checklist_Onboarding_TEMPLATE.md
+  - Carta_Proposta_TEMPLATE.md
+09_Politicas
+  - Politica_Gestao_Documental.md
+  - Politica_Controle_Acesso_Wiki.md
+10_Calendarios
+  - Calendario_Fiscal_2025.md
+14_Treinamentos
+  - Metricas_Orcamentarias_2025.md
+15_BI_Indicadores
+  - Indicadores_Estrutura.md
+16_Reunioes
+  - ATA_TEMPLATE.md
+  - Reuniao_Planejamento_Estrategico_EXEMPLO.md
+17_Onboarding
+  - Onboarding_Guia.md
+18_Compliance_Sped_EFD
+  - EFD_Contribuicoes_Extracao_PIS_COFINS.md
+19_Marketing_Branding
+  - Guia_de_Estilo.md
+20_Canais
+  - Plano_Canais_Resumo.md
