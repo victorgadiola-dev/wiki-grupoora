@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIKI • Grupo Ora</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%2304294B'/%3E%3Cpath d='M14 34c8 8 15 8 23-10' stroke='%23FF7A00' stroke-width='6' fill='none'/%3E%3Cpath d='M28 46c10-4 16-10 22-26' stroke='%232ECC71' stroke-width='6' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"></div>
+      <div>
+        <h1>WIKI — Grupo Ora</h1>
+        <div class="sub">Links, documentos e conhecimento. Edite <code>data/wiki.json</code> para adicionar/organizar.</div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Buscar por título, tags ou setor…">
+      <select id="sector">
+        <option value="">Todos os setores</option>
+      </select>
+    </div>
+
+    <div id="tabs" class="tabs"></div>
+    <div id="cards" class="grid"></div>
+
+    <div class="footer">
+      <hr>
+      <div>Feito para GitHub Pages. Para editar conteúdo, altere <code>data/wiki.json</code> no seu repositório.</div>
+    </div>
+  </div>
+
+<script>
+const state = { data: [], sector: "", tag: "", q: "" };
+
+async function load() {
+  const res = await fetch('data/wiki.json', {cache:'no-store'});
+  state.data = await res.json();
+
+  // Build sector select
+  const sectors = Array.from(new Set(state.data.map(x => x.sector))).sort();
+  const sel = document.getElementById('sector');
+  sectors.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+
+  // Build tabs (tags)
+  buildTabs();
+  render();
+}
+
+function buildTabs(){
+  const allTags = new Set();
+  state.data.forEach(x => (x.tags||[]).forEach(t=>allTags.add(t)));
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = '';
+  const make = (label,val)=>{
+    const el = document.createElement('button');
+    el.className = 'tab'+(state.tag===val?' active':'');
+    el.textContent = label;
+    el.onclick = ()=>{ state.tag = val; render(); buildTabs(); };
+    tabs.appendChild(el);
+  };
+  make('Todas as tags','');
+  Array.from(allTags).sort().forEach(t => make('#'+t, t));
+}
+
+function match(item){
+  if(state.sector && item.sector !== state.sector) return false;
+  if(state.tag && !(item.tags||[]).includes(state.tag)) return false;
+  if(state.q){
+    const q = state.q.toLowerCase();
+    const text = (item.title + ' ' + (item.desc||'') + ' ' + item.sector + ' ' + (item.tags||[]).join(' ')).toLowerCase();
+    if(!text.includes(q)) return false;
+  }
+  return true;
+}
+
+function render(){
+  const cards = document.getElementById('cards');
+  cards.innerHTML = '';
+  state.data.filter(match).forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <h3>${item.title}</h3>
+      <div class="badges">
+        <span class="badge">${item.sector}</span>
+        ${(item.tags||[]).map(t=>`<span class="badge">#${t}</span>`).join('')}
+      </div>
+      <p>${item.desc||''}</p>
+      <p><a href="${item.url}" target="_blank" rel="noopener">Abrir ↗</a></p>
+      <div class="meta">${item.updated?('Atualizado: '+item.updated):''}</div>
+    `;
+    cards.appendChild(card);
+  });
+}
+
+document.getElementById('sector').addEventListener('change', (e)=>{ state.sector = e.target.value; render(); });
+document.getElementById('q').addEventListener('input', (e)=>{ state.q = e.target.value; render(); });
+
+load();
+</script>
+</body>
+</html>

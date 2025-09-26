@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Governança da Wiki",
+    "sector": "Governança",
+    "tags": [
+      "policy",
+      "workflow"
+    ],
+    "url": "./01_Governanca/01_Governanca_da_Wiki.md",
+    "desc": "Regras de organização, papéis e revisão.",
+    "updated": ""
+  },
+  {
+    "title": "Modelo de Página",
+    "sector": "Governança",
+    "tags": [
+      "template"
+    ],
+    "url": "./01_Governanca/02_Modelo_de_Pagina.md",
+    "desc": "Template padrão para novas páginas.",
+    "updated": ""
+  },
+  {
+    "title": "POP — Entrega Futura (Mod. 55)",
+    "sector": "Fiscal",
+    "tags": [
+      "pop",
+      "nf-e",
+      "modelo55"
+    ],
+    "url": "./05_Procedimentos_POP/POP_Entrega_Futura_Mod55_EXEMPLO.md",
+    "desc": "Exemplo de procedimento de emissão.",
+    "updated": ""
+  },
+  {
+    "title": "_TEMPLATE_Cliente",
+    "sector": "Clientes",
+    "tags": [
+      "template",
+      "onboarding"
+    ],
+    "url": "./03_Clientes/_TEMPLATE_Cliente.md",
+    "desc": "Ficha completa do cliente.",
+    "updated": ""
+  },
+  {
+    "title": "Athenas3000 — Guia",
+    "sector": "TI",
+    "tags": [
+      "athenas3000",
+      "erp"
+    ],
+    "url": "./06_Software_Base/Athenas3000.md",
+    "desc": "Mapa de funcionalidades e perguntas-chave.",
+    "updated": ""
+  },
+  {
+    "title": "Banco de Links",
+    "sector": "Geral",
+    "tags": [
+      "links"
+    ],
+    "url": "./11_Banco_de_Links.md",
+    "desc": "Oficiais, sistemas e internos.",
+    "updated": ""
+  }
+]
